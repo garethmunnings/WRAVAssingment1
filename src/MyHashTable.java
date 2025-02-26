@@ -49,14 +49,11 @@ public class MyHashTable {
     // remove: YOU ARE REQUIRED TO IMPLEMENT THIS METHOD
     public String remove(String key){
         int k = hash(key);
-        Node cur = my_table[k].getFirst();
-        int i = 0;
-        while(cur != null){
+        for(Node cur: my_table[k]){
             if(cur.key.equals(key)){
-                my_table[k].remove(i);
+                my_table[k].remove(cur);
                 return cur.value;
             }
-            i++;
         }
 
         return null;
